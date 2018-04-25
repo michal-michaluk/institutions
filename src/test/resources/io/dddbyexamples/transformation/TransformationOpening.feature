@@ -18,9 +18,11 @@ Feature: rozpoczęcie procesu przekształceń
     Given instytucji "B"
 
     Given walidacja decyzji (w tym dat i instytucji) przeszła poprawnie
+    Given walidacja dat przeszła poprawnie
+    Given walidacja instytucji przeszła poprawnie
     When włączamy instytucję "B" do instytucji "A"
     Then w tym przekształceniu instytucja "A" jest instucucją docelową
-    Then weryfikacja zasad dla dat jest ok
+    Then weryfikacja zasad decyzji (w tym dat i instytucji) dat jest ok
 
     Then instytucja B ma status "W trakcie przekształcenia" na wykazie Instutucji Szkolnictwa Wyższego i Nauki
     And zadanie dla pracowników z instytucjia "A" zostało zdefiniowane w harmonogramach
