@@ -49,7 +49,7 @@ Feature: proces przekształceń
     And zadanie dla pracowników z instytucjia "A" zostało zdewiniowane w harmonogramach
     And zadanie dla pracowników z instytucjia "B" zostało zdewiniowane w harmonogramach
     And przekształcenie pojawiło się na liście przekształceń
-    And postęp przekształcenia zawiera informację ""
+    And postęp przekształcenia wynosi 0% dla kierunków
     # pracownik z instytucji B już nie pracuje
 
     Then wszystkie kierunki z "A" pozostają po przekształceniu

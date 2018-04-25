@@ -1,10 +1,13 @@
 Feature: rozpoczęcie procesu przekształceń
 
   rozpoczęcie włączenie [pan z ministerstwa]:
-  - wybór instytucji podlegających przekształceniu
   - wybrnanie typu przekształcenia (połączenie, włączenie i wyodrębnienie)
+  - wybór instytucji podlegających przekształceniu
   - (opcjonalnie) utworzenie nowej instytyucji jako docelowej
   - wskazanie (docelowej) instytucji, która pozostanie po przekształceniu
+  - zweryfikowanie dat
+  - zweryfikowanie typów instytucji
+  - zweryfikowanie decyzji
   - przekazanie informacji do zdefiniowania zadań [harmonogramy] (pracownicy z dowolnej instytucji mogą dysponować tymi bytami)
 
   # TODO sformułowane dla połączenie, wyodrębnienie
@@ -14,13 +17,14 @@ Feature: rozpoczęcie procesu przekształceń
     Given instytucji "A"
     Given instytucji "B"
 
+    Given walidacja decyzji (w tym dat i instytucji) przeszła poprawnie
     When włączamy instytucję "B" do instytucji "A"
     Then w tym przekształceniu instytucja "A" jest instucucją docelową
     Then weryfikacja zasad dla dat jest ok
 
-    Then instystucja B ma status "Wtrakcie przekształcenia" na wykazie Instutucji Szkolnictwa Wyższego i Nauki
-    And zadanie dla pracowników z instytucjia "A" zostało zdewiniowane w harmonogramach
-    And zadanie dla pracowników z instytucjia "B" zostało zdewiniowane w harmonogramach
+    Then instytucja B ma status "W trakcie przekształcenia" na wykazie Instutucji Szkolnictwa Wyższego i Nauki
+    And zadanie dla pracowników z instytucjia "A" zostało zdefiniowane w harmonogramach
+    And zadanie dla pracowników z instytucjia "B" zostało zdefiniowane w harmonogramach
     And przekształcenie pojawiło się na liście przekształceń
     And postęp przekształcenia zawiera informację ""
 
