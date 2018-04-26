@@ -1,11 +1,9 @@
 package io.dddbyexamples.transformation.opening.validation;
 
-import com.sun.xml.internal.ws.developer.MemberSubmissionAddressing;
 import io.dddbyexamples.transformation.opening.InstitutionKind;
 import io.dddbyexamples.transformation.opening.InstutuionStatus;
 import org.assertj.core.util.Lists;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -21,11 +19,11 @@ public class InstitutionValidator {
 
     public ValidationResult validateStatus(InstutuionStatus status) {
         switch (status) {
-            case OPENING:
+            case OPEN:
                 return ValidationResult.ok();
             case LIQUIDATED:
             case TRANSFORMED:
-            case IN_LIQUIDATED:
+            case IN_LIQUIDATION:
             case IN_TRANSFORMATION:
                 return ValidationResult.noOk("Instytucja nie jest aktywna");
             default:

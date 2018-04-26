@@ -2,9 +2,9 @@ package io.dddbyexamples.transformation.opening;
 
 public enum InstutuionStatus {
 
-    OPENING,
+    OPEN,
     LIQUIDATED,
-    IN_LIQUIDATED,
+    IN_LIQUIDATION,
     IN_TRANSFORMATION,
     TRANSFORMED
 }

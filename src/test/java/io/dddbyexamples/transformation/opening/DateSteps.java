@@ -1,6 +1,5 @@
 package io.dddbyexamples.transformation.opening;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,8 +8,6 @@ import io.dddbyexamples.transformation.opening.validation.ValidationResult;
 import org.assertj.core.util.Lists;
 import org.junit.Assert;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -33,12 +30,12 @@ public class DateSteps {
 
     @Given("^instytucji A założona dnia \"([^\"]*)\"$")
     public void instytucjiAZałożonaDnia(String startDate) throws Throwable {
-        institutionA = new Institution(InstutuionStatus.OPENING, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
+        institutionA = new Institution(InstutuionStatus.OPEN, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
     }
 
     @Given("^instytucji B założona dnia \"([^\"]*)\"$")
     public void instytucjiBZałożonaDnia(String startDate) throws Throwable {
-        institutionB = new Institution(InstutuionStatus.OPENING, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
+        institutionB = new Institution(InstutuionStatus.OPEN, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
     }
 
     @When("^sprawdzamy poprawność dat dla przekształcenia z datą \"([^\"]*)\"$")
