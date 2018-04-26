@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import java.util.Collections;
 
 @AllArgsConstructor
-public class SomethingWithTransformationOpening {
+public class TransformationOpening {
 
     private final DecisionValidator decisionValidator;
     private final DecisionDateValidation decisionDateValidation;

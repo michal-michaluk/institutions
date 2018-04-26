@@ -1,12 +1,10 @@
 package io.dddbyexamples.transformation.opening;
 
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.dddbyexamples.transformation.opening.validation.InstitutionValidator;
 import io.dddbyexamples.transformation.opening.validation.ValidationResult;
-import org.assertj.core.util.Lists;
 import org.junit.Assert;
 
 import java.util.HashMap;
@@ -23,13 +21,13 @@ public class InstitutionSteps {
     private ValidationResult validationResult;
 
     @Given("^Instytucja \"([^\"]*)\" ma rodzaj \"([^\"]*)\"$")
-    public void instytucjaAMaRodzaj(String institution, InstitutionKind institutionKind) throws Throwable {
-        institutions.put(institution, new Institution(InstutuionStatus.OPEN, institutionKind, null));
+    public void instytucjaAMaRodzaj(String institution, Institution.Kind institutionKind) throws Throwable {
+        institutions.put(institution, new Institution(Institution.Status.OPEN, institutionKind, null));
     }
 
     @Given("^Instytucja \"([^\"]*)\" ma status \"([^\"]*)\"$")
-    public void instytucjaMaStatus(String institution, InstutuionStatus status) throws Throwable {
-        institutions.put(institution, new Institution(status, InstitutionKind.PUBLIC, null));
+    public void instytucjaMaStatus(String institution, Institution.Status status) throws Throwable {
+        institutions.put(institution, new Institution(status, Institution.Kind.PUBLIC, null));
     }
 
     @When("^Sprawdzamy status instytucji \"([^\"]*)\"$")
@@ -42,7 +40,7 @@ public class InstitutionSteps {
     @When("^Sprawdzamy rodzaj instytucji \"([^\"]*)\"$")
     public void sprawdzamyRodzajInstytucji(String institution) throws Throwable {
         validationResult = institutionValidator.isKindCantBeTransformed(
-                institutions.get(institution).getInstitutionKind()
+                institutions.get(institution).getKind()
         );
     }
 
@@ -50,7 +48,7 @@ public class InstitutionSteps {
     public void porównujemyRodzajeInstytucji() throws Throwable {
         validationResult = institutionValidator.validateKind(
                 institutions.values().stream()
-                        .map(Institution::getInstitutionKind)
+                        .map(Institution::getKind)
                         .collect(Collectors.toList())
         );
     }

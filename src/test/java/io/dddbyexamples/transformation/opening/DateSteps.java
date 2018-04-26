@@ -30,12 +30,12 @@ public class DateSteps {
 
     @Given("^instytucji A założona dnia \"([^\"]*)\"$")
     public void instytucjiAZałożonaDnia(String startDate) throws Throwable {
-        institutionA = new Institution(InstutuionStatus.OPEN, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
+        institutionA = new Institution(Institution.Status.OPEN, Institution.Kind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
     }
 
     @Given("^instytucji B założona dnia \"([^\"]*)\"$")
     public void instytucjiBZałożonaDnia(String startDate) throws Throwable {
-        institutionB = new Institution(InstutuionStatus.OPEN, InstitutionKind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
+        institutionB = new Institution(Institution.Status.OPEN, Institution.Kind.NOT_PUBLIC, LocalDate.parse(startDate, formatter));
     }
 
     @When("^sprawdzamy poprawność dat dla przekształcenia z datą \"([^\"]*)\"$")

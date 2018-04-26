@@ -31,12 +31,12 @@ public class TransformationOpeningSteps {
     private InstitutionValidator institutionValidator = Mockito.mock(InstitutionValidator.class);
     private TransformationEventsFake events = new TransformationEventsFake();
 
-    private SomethingWithTransformationOpening subject;
+    private TransformationOpening subject;
     private OpeningResult result;
 
     @Before
     public void setUp() throws Exception {
-        subject = new SomethingWithTransformationOpening(
+        subject = new TransformationOpening(
                 decisionValidator,
                 decisionDateValidation,
                 institutionValidator,

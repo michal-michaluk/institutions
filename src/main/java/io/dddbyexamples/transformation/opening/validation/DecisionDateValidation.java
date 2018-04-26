@@ -14,7 +14,7 @@ public class DecisionDateValidation {
 
     public ValidationResult checkInstitutionOnDate(List<Institution> institutions, LocalDate checkOnDate) {
         Optional<Institution> institutionStartedAfterCheckDate = institutions.stream()
-                .filter(institution -> institution.getStartDate().isAfter(checkOnDate))
+                .filter(institution -> institution.getEstablished().isAfter(checkOnDate))
                 .findAny();
 
         if (institutionStartedAfterCheckDate.isPresent()) {
