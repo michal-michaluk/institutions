@@ -2,19 +2,19 @@ Feature: weryfikacja poprawności dat w procesie przekształceń
 
   Scenario: weryfikacja poprawności dat
     Given dzisiejsza data to "11.02.2015"
-    Given instytucji "A" założona dnia 20.05.2010
-    Given instytucji "B" założona dnia 11.02.2013
+    Given instytucji A założona dnia "20.05.2010"
+    Given instytucji B założona dnia "11.02.2013"
     When sprawdzamy poprawność dat dla przekształcenia z datą "01.02.2015"
     Then wszystkie daty są poprawne
 
 
   Scenario: przekształcenie z datą przyszłą
     Given dzisiejsza data to "11.02.2015"
-    Given instytucji "A" założona dnia "20.05.2010"
-    Given instytucji "B" założona dnia "11.02.2013"
+    Given instytucji A założona dnia "20.05.2010"
+    Given instytucji B założona dnia "11.02.2013"
     When sprawdzamy poprawność dat dla przekształcenia z datą "11.04.2015"
     Then wszystkie daty są poprawne
-    When chcemy zamknąć przekształcenie w dniu "11.02.2015"
+    When chcemy zamknąć przekształcenie w dniu "11.02.2010"
     Then operacja jest niemożliwa
     When chcemy zamknąć przekształcenie w dniu "11.04.2015"
     Then operacja została wykonana
