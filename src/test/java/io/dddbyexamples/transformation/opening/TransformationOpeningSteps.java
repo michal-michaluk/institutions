@@ -7,6 +7,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.dddbyexamples.transformation.TransformationEvents;
+import io.dddbyexamples.transformation.closing.TransformationReport;
+import io.dddbyexamples.transformation.ongoing.AssetsDistributed;
+import io.dddbyexamples.transformation.ongoing.KnownAssetsChanged;
 import io.dddbyexamples.transformation.opening.validation.DecisionDateValidation;
 import io.dddbyexamples.transformation.opening.validation.DecisionValidator;
 import io.dddbyexamples.transformation.opening.validation.InstitutionValidator;
@@ -127,12 +130,29 @@ public class TransformationOpeningSteps {
 
     private class TransformationEventsFake implements TransformationEvents {
         private List<TransformationOpened> openedEvents = new ArrayList<>();
+        private List<KnownAssetsChanged> knownEvents = new ArrayList<>();
+        private List<AssetsDistributed> distributedEvents = new ArrayList<>();
+        private List<TransformationReport> reportEvents = new ArrayList<>();
 
         @Override
         public void emit(TransformationOpened event) {
             openedEvents.add(event);
         }
 
+        @Override
+        public void emit(KnownAssetsChanged event) {
+            knownEvents.add(event);
+        }
+
+        @Override
+        public void emit(AssetsDistributed event) {
+            distributedEvents.add(event);
+        }
+
+        @Override
+        public void emit(TransformationReport event) {
+            reportEvents.add(event);
+        }
 
         public TransformationOpened expectSingleOpening() {
             Assertions.assertThat(openedEvents).hasSize(1);

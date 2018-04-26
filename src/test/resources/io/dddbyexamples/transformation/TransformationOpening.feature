@@ -13,7 +13,7 @@ Feature: rozpoczęcie procesu przekształceń
   # TODO sformułowane dla połączenie, wyodrębnienie
 
 
-  Scenario: włączeniea instytucji
+  Scenario: włączenie instytucji
     Given instytucji "A"
     Given instytucji "B"
 

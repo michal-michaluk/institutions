@@ -8,8 +8,8 @@ import java.util.List;
 
 @Value
 public class TransformationOpened {
-    private final TransformationTypes type;
-    private final DecisionDocument document;
-    private final List<String> targetInstitutions;
-    private final List<String> transformedInstitutions;
+    TransformationTypes type;
+    DecisionDocument document;
+    List<String> targetInstitutions;
+    List<String> transformedInstitutions;
 }
